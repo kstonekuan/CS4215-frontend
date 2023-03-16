@@ -1,16 +1,16 @@
+import { random } from 'lodash';
+import Phaser from 'phaser';
+import { SagaIterator } from 'redux-saga';
+import { call, put, race, select, StrictEffect, take } from 'redux-saga/effects';
 import {
   Context,
   findDeclaration,
   interrupt,
   runInContext
-} from 'calc-slang';
-import { InterruptedError } from 'calc-slang/dist/errors/errors';
-import { parse } from 'calc-slang/dist/parser/parser';
-import { Chapter, Variant } from 'calc-slang/dist/types';
-import { random } from 'lodash';
-import Phaser from 'phaser';
-import { SagaIterator } from 'redux-saga';
-import { call, put, race, select, StrictEffect, take } from 'redux-saga/effects';
+} from 'sml-slang';
+import { InterruptedError } from 'sml-slang/dist/errors/errors';
+import { parse } from 'sml-slang/dist/parser/parser';
+import { Chapter, Variant } from 'sml-slang/dist/types';
 import EnvVisualizer from 'src/features/envVisualizer/EnvVisualizer';
 
 import { EventType } from '../../features/achievement/AchievementTypes';
@@ -548,13 +548,13 @@ export function* evalCode(
   const { result, interrupted, paused } = yield race({
     result:
       call(runInContext, code, context, {
-            scheduler: 'preemptive',
-            executionMethod: 'interpreter',
-            originalMaxExecTime: execTime,
-            stepLimit: stepLimit,
-            variant: Variant.DEFAULT,
-            useSubst: false
-          }),
+        scheduler: 'preemptive',
+        executionMethod: 'interpreter',
+        originalMaxExecTime: execTime,
+        stepLimit: stepLimit,
+        variant: Variant.DEFAULT,
+        useSubst: false
+      }),
 
     /**
      * A BEGIN_INTERRUPT_EXECUTION signals the beginning of an interruption,
@@ -605,7 +605,7 @@ export function* evalCode(
     yield put(actions.endDebuggerPause(workspaceLocation));
     yield put(actions.evalInterpreterSuccess('Breakpoint hit!', workspaceLocation));
     return;
-  } 
+  }
   yield* dumpDisplayBuffer(workspaceLocation);
   // Do not write interpreter output to REPL, if executing chunks (e.g. prepend/postpend blocks)
   if (actionType !== EVAL_SILENT) {

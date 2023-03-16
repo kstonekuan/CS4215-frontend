@@ -1,8 +1,8 @@
-import { Variant } from 'calc-slang/dist/types';
 import { compressToEncodedURIComponent } from 'lz-string';
 import * as qs from 'query-string';
 import { SagaIterator } from 'redux-saga';
 import { call, delay, put, race, select } from 'redux-saga/effects';
+import { Variant } from 'sml-slang/dist/types';
 
 import {
   changeQueryString,
@@ -35,7 +35,7 @@ export default function* PlaygroundSaga(): SagaIterator {
 
       resp = result;
       timeout = hasTimedOut;
-    } catch (_) {}
+    } catch (_) { }
 
     if (!resp || timeout) {
       yield put(updateShortURL(errorMsg));

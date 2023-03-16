@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Checkbox } from '@blueprintjs/core';
-import { Frame } from 'calc-slang/dist/types';
 import React, { RefObject } from 'react';
 import { Layer, Rect, Stage } from 'react-konva';
+import { Frame } from 'sml-slang/dist/types';
 
 import { Level as CompactLevel } from './compactComponents/Level';
 import { ArrayValue as CompactArrayValue } from './compactComponents/values/ArrayValue';
@@ -158,7 +158,7 @@ export class Layout {
           (maxWidth, level) => Math.max(maxWidth, level.width()),
           0
         ) +
-          Config.CanvasPaddingX * 2
+        Config.CanvasPaddingX * 2
       );
     } else {
       Layout.nonCompactHeight = Math.max(
@@ -423,13 +423,12 @@ export class Layout {
 
   /** Calculate the test to be displayed for button to save the images.*/
   private static saveButtonText(): String {
-    return `Save ${
-      Layout.width() > Config.MaxExportWidth || Layout.height() > Config.MaxExportHeight
+    return `Save ${Layout.width() > Config.MaxExportWidth || Layout.height() > Config.MaxExportHeight
         ? Math.ceil(Layout.width() / Config.MaxExportWidth) *
-            Math.ceil(Layout.height() / Config.MaxExportHeight) +
-          ' images'
+        Math.ceil(Layout.height() / Config.MaxExportHeight) +
+        ' images'
         : 'image'
-    }`;
+      }`;
   }
 
   /**

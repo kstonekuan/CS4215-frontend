@@ -1,4 +1,3 @@
-import { Environment } from 'calc-slang/dist/types';
 import { KonvaEventObject } from 'konva/lib/Node';
 import React, { RefObject } from 'react';
 import {
@@ -8,6 +7,7 @@ import {
   Tag as KonvaTag,
   Text as KonvaText
 } from 'react-konva';
+import { Environment } from 'sml-slang/dist/types';
 
 import EnvVisualizer from '../../EnvVisualizer';
 import { CompactConfig, ShapeDefaultProps } from '../../EnvVisualizerCompactConfig';
@@ -112,7 +112,7 @@ export class FnValue extends Value implements IHoverable {
     this.labelRef.current.hide();
     setUnhoveredStyle(currentTarget);
   };
-  updatePosition(): void {}
+  updatePosition(): void { }
   draw(): React.ReactNode {
     this._arrow =
       this.enclosingEnvNode.compactFrame &&

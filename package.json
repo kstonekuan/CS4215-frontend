@@ -15,7 +15,7 @@
     "format": "eslint --ext \".js,.jsx,.ts,.tsx\" --fix src && prettier --write \"src/**/*.{js,jsx,ts,tsx}\" && prettier --write --parser scss \"src/**/*.scss\"",
     "format:tsx": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:scss": "prettier --list-different --parser scss \"src/**/*.scss\"",
-    "start": "cross-env EXTEND_ESLINT=true BROWSER=none PORT=8000 craco start",
+    "start": "yarn link sml-slang && cross-env EXTEND_ESLINT=true BROWSER=none PORT=8000 craco start",
     "test": "TZ=UTF-8 craco test",
     "test-coveralls": "./scripts/test-coveralls.sh",
     "update-ui-snapshots": "jest --updateSnapshot",

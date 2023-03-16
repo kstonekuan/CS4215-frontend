@@ -1,4 +1,4 @@
-import { Chapter, Language, SourceError, Variant } from 'calc-slang/dist/types';
+import { Chapter, Language, SourceError, Variant } from 'sml-slang/dist/types';
 
 import { AcademyState } from '../../features/academy/AcademyTypes';
 import { AchievementState } from '../../features/achievement/AchievementTypes';
@@ -110,14 +110,13 @@ export interface SALanguage extends Language {
 }
 
 const variantDisplay: Map<Variant, string> = new Map([
-  [Variant.DEFAULT, 'calc']
+  [Variant.DEFAULT, 'sml']
 ]);
 
 
 export const styliseSublanguage = (chapter: Chapter, variant: Variant = Variant.DEFAULT) => {
-  return `Source \xa7${chapter}${
-    variantDisplay.has(variant) ? ` ${variantDisplay.get(variant)}` : ''
-  }`;
+  return `Source \xa7${chapter}${variantDisplay.has(variant) ? ` ${variantDisplay.get(variant)}` : ''
+    }`;
 };
 
 export const sublanguages: Language[] = [
@@ -183,7 +182,7 @@ export const defaultEditorValue = '1+1';
 
 /**
  * Create a default IWorkspaceState for 'resetting' a workspace.
- * Takes in parameters to set the calc-slang library and chapter.
+ * Takes in parameters to set the sml-slang library and chapter.
  *
  * @param workspaceLocation the location of the workspace, used for context
  */
