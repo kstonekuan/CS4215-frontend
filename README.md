@@ -6,7 +6,7 @@
 
 The Source Academy ([https://sourceacademy.org/](https://sourceacademy.org/)) is an immersive online experiential environment for learning programming. It is developed by a community of learners (also called "Source Academy") who use the book [Structure and Interpretation of Computer Programs, JavaScript Adaptation](https://sourceacademy.org/sicpjs) (SICP JS). This repository houses the sources for the frontend of the Source Academy, written in ReactJS with Redux.
 
-## [Update] Before building this project, see [sml-slang README](https://github.com/yangdinglou/sml-slang#using-your-xx-slang-in-your-local-source-academy) to link the language for the use.
+## [Update] Before building this project, see [sml-slang README](https://github.com/kstonekuan/sml-slang#using-your-xx-slang-in-your-local-source-academy) to link the language for the use.
 
 ## Features
 
@@ -100,7 +100,7 @@ Before pushing to Github, ensure that your code is formatted and your tests are 
 
 ### Running your own js-slang
 
-See [sml-slang README](https://github.com/yangdinglou/sml-slang#using-your-xx-slang-in-your-local-source-academy) for instructions how to run your own xx-slang in the frontend.
+See [sml-slang README](https://github.com/kstonekuan/sml-slang#using-your-xx-slang-in-your-local-source-academy) for instructions how to run your own xx-slang in the frontend.
 
 ### Contribution Guidelines
 
@@ -136,18 +136,6 @@ There are a few additional environment variables that are used when building and
 4. `REACT_APP_SW_EXCLUDE_REGEXES`: A JSON array of regexes as strings. The service worker will ignore paths matching any of these regexes. This is used in our [GitHub Pages deploy](https://source-academy.github.io) so that it does not conflict with the subsites we host on GitHub Pages.
 5. `REACT_APP_CADET_LOGGER`: Log server URL. To test with cadet-logger on localhost, set it to `http://localhost:8001/assessment-logger`.
 6. `REACT_APP_CADET_LOGGER_INTERVAL`: The interval (in ms) that the frontend should upload logs.
-
-## Testing
-
-The frontend comes with an extensive test suite. To run the tests after you made your modifications, run
-`yarn test`. Regression tests are run automatically when you want to push changes to this repository.
-The regression tests are generated using `jest` and stored as snapshots in `src/\_\_tests\_\_`.  After modifying the frontend, carefully inspect any failing regression tests reported in red in the command line. If you are convinced that the regression tests and not your changes are at fault, you can update the regression tests by running:
-
-```{.}
-$ yarn test --updateSnapshot
-```
-
-and then typing `a` to update all snapshots.
 
 ## License
 
